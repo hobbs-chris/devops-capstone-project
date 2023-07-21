@@ -57,6 +57,7 @@ def create_accounts():
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
 
+
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
@@ -84,7 +85,7 @@ def read_account(account_id):
     """
     Reads an Account
     This endpoint will return the account data for the criteria specified
-    """    
+    """
     app.logger.info("Request to read an Account with id: %s", account_id)
     # use the Account.find() method to find the account
     account = Account.find(account_id)
@@ -93,6 +94,7 @@ def read_account(account_id):
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] not found.")
     # return the serialize() version of the account with a return code of status.HTTP_200_OK
     return account.serialize(), status.HTTP_200_OK
+
 
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
@@ -116,7 +118,6 @@ def update_accounts(account_id):
     account.update()
     # return the serialize() version of the account with a return code of status.HTTP_200_OK
     return account.serialize(), status.HTTP_200_OK
-
 
 
 ######################################################################
