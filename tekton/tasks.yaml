@@ -54,7 +54,7 @@ spec:
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: echo
+  name: nose
 spec:
   description: This task will run nosetests on the provided input.
   workspaces:
@@ -83,4 +83,3 @@ spec:
 
         echo "***** Running nosetests with: $(params.args)"
         nosetests $(params.args)
-
